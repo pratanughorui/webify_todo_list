@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        background: #222f3e;
+      }
+      .main_div {
+        width: 50%;
+        height: 70vh;
+        margin-top: 8%;
+        margin-left: 25%;
+        display: flex;
+        box-shadow: 0 0 10px #447686;
+      }
+      .add {
+        width: 45%;
+        height: auto;
+
+        display: flex;
+        align-items: center;
+      }
+      .list {
+        border-left: 3px solid #29505d;
+        background: rgba(175, 169, 169, 0.095);
+        width: 55%;
+        height: auto;
+        margin: 1%;
+      }
+
+      .add_box {
+        width: 95%;
+        height: 18vh;
+        margin-left: 4%;
+      }
+      .add_box textarea {
+        width: 96%;
+        height: 70%;
+        padding: 2%;
+
+        border: none;
+        resize: none;
+        font-size: 15px;
+      }
+      .btn {
+        width: 100%;
+        display: flex;
+
+        height: 30%;
+      }
+      #add {
+        margin-left: 25%;
+      }
+      .add_box button {
+        margin-left: 5%;
+        padding: 2%;
+        width: 20%;
+        font-size: 16px;
+        font-family: cursive;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        transition-duration: 0.4s;
+      }
+      .btn1:hover {
+        background-color: #4caf50;
+        color: white;
+      }
+      .btn2:hover {
+        background-color: #008cba;
+        color: white;
+      }
+      .head {
+        width: 100%;
+        color: wheat;
+        text-align: center;
+        background-color: #29505d;
+      }
+      .head h3 {
+        padding: 2%;
+        font-family: cursive;
+        color: rgb(107, 227, 227);
+      }
+      .todo {
+        height: 81%;
+        overflow-y: scroll;
+      }
+      ::-webkit-scrollbar {
+        width: 20%;
+      }
+      .delall {
+        height: 10%;
+        display: flex;
+        background-color: #29505d;
+      }
+      .errmsg {
+        color: aliceblue;
+        font-family: cursive;
+
+        width: 70%;
+      }
+      .errmsg p {
+        margin: 2%;
+        margin-top: 3%;
+      }
+      .delallbtn {
+        width: 30%;
+      }
+      .delallbtn button {
+        width: 90%;
+        height: 75%;
+        font-size: 20px;
+        text-align: center;
+        margin: 4.5%;
+        cursor: pointer;
+        border: none;
+        font-family: cursive;
+        border-radius: 5px;
+        background-color: slateblue;
+        color: aliceblue;
+        transition-duration: 0.4s;
+      }
+      .delallbtn button:hover {
+        background-color: aliceblue;
+        color: #222f3e;
+      }
+      .stk {
+        display: flex;
+        background: #222f3e;
+      }
+      .stk h3 {
+        color: aliceblue;
+        margin: 1%;
+      }
+      .fa-pen-to-square,
+      .fa-trash-can {
+        color: white;
+        font-size: 19px;
+
+        cursor: pointer;
+        transition-duration: 0.4s;
+      }
+      .fa-pen-to-square:hover {
+        color: slateblue;
+      }
+      .fa-trash-can:hover {
+        color: slateblue;
+      }
+      .stkbtn {
+        width: 15%;
+
+        display: flex;
+        justify-content: space-between;
+        margin: 1%;
+        margin-left: 75%;
+      }
+      .msg {
+        font-family: cursive;
+
+        color: aliceblue;
+        word-break: break-all;
+        margin: 3%;
+      }
+      .data_box {
+        border-bottom: 3px solid #29505d;
+        margin-top: 2%;
+      }
+      .msg h2 {
+      }
+      #save {
+        margin-left: 24%;
+      }
+      /*desktop*/
+      @media (min-width: 1024px) {
+      }
+      /*For tab*/
+      @media (min-width: 781px) and (max-width: 1023px) {
+        .main_div {
+          width: 95%;
+          height: 80vh;
+          margin-top: 7%;
+          margin-left: 2%;
+          display: flex;
+        }
+        .add_box {
+          width: 100%;
+          height: 20vh;
+        }
+        .add_box textarea {
+          width: 93%;
+          height: 70%;
+          margin: 1%;
+          padding: 2%;
+          border: none;
+          resize: none;
+          font-size: 18px;
+        }
+
+        .btn {
+          width: 100%;
+          display: flex;
+
+          height: 30%;
+        }
+        .add_box button {
+          margin-left: 10%;
+          padding: 2%;
+          width: 20%;
+          font-size: 16px;
+          font-family: cursive;
+          border: none;
+          border-radius: 15px;
+          cursor: pointer;
+          transition-duration: 0.4s;
+        }
+        #add {
+          margin-left: 23%;
+        }
+        .delallbtn button {
+          width: 87%;
+          height: 75%;
+          font-size: 15px;
+          text-align: center;
+          margin: 4.5%;
+          cursor: pointer;
+          border: none;
+          font-family: cursive;
+          border-radius: 5px;
+          background-color: slateblue;
+          color: aliceblue;
+        }
+        .head h3 {
+          font-size: 16px;
+        }
+        #save {
+          margin-left: 24%;
+        }
+      }
+      /*For mobile*/
+      @media (max-width: 780px) {
+        .main_div {
+          width: 95%;
+          height: 90vh;
+          margin-top: 7%;
+          margin-left: 2%;
+          display: flex;
+          flex-wrap: wrap;
+        }
+        .add {
+          height: 25%;
+          flex: 1 1 100%;
+          display: flex;
+          align-items: center;
+        }
+        .add_box {
+          width: 63%;
+          height: 15vh;
+
+          margin-left: 17%;
+        }
+        .list {
+          width: 100%;
+          height: 75%;
+          margin: 0;
+        }
+        .head {
+          width: 100%;
+          color: wheat;
+          text-align: center;
+          background-color: #29505d;
+        }
+        .head h3 {
+          font-size: 16px;
+          padding: 1%;
+        }
+        .delallbtn button {
+          width: 87%;
+          height: 75%;
+          font-size: 15px;
+          text-align: center;
+          margin: 4.5%;
+          cursor: pointer;
+          border: none;
+          font-family: cursive;
+          border-radius: 5px;
+          background-color: slateblue;
+          color: aliceblue;
+        }
+        #save {
+          margin-left: 24%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main_div">
+      <div class="add">
+        <div class="add_box">
+          <textarea name="job" id="input" required></textarea><br />
+          <input type="hidden" id="hidden_input" />
+          <div class="btn">
+            <button class="btn1" id="add">Add</button>
+            <button class="btn_save" id="save" style="display: none">
+              save
+            </button>
+            <button class="btn2">Clear</button>
+          </div>
+        </div>
+      </div>
+      <div class="list">
+        <div class="head">
+          <h3>To Do List</h3>
+        </div>
+
+        <div class="todo" id="t"></div>
+        <div class="delall">
+          <div class="errmsg"></div>
+          <div class="delallbtn"><button>delete all</button></div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script
+    src="https://kit.fontawesome.com/4334081fd1.js"
+    crossorigin="anonymous"
+  ></script>
+  <script>
+    const input_data = document.getElementById("input");
+    const add_btn = document.querySelector(".btn1");
+    let i = 0;
+    add_btn.addEventListener("click", () => {
+      var input_value = input_data.value;
+      if (input_value.trim() != 0) {
+        let webtask = localStorage.getItem("localtask");
+        if (webtask == null) {
+          taskobj = [];
+        } else {
+          taskobj = JSON.parse(webtask);
+        }
+        taskobj.push(input_value);
+        taskobj.sort();
+        console.log(taskobj);
+        localStorage.setItem("localtask", JSON.stringify(taskobj));
+        erm();
+      } else {
+        let webtask = localStorage.getItem("localtask");
+        let taskobj = JSON.parse(webtask);
+        if (taskobj.length == 0) {
+          let s = `<p>You have to write something</p>`;
+          const erms = document.querySelector(".delall").children[0];
+          erms.innerHTML = "";
+          erms.innerHTML = s;
+        } else {
+          const erms = document.querySelector(".delall").children[0];
+          erms.style.display = "block";
+          let s = `<p>You have to write something</p>`;
+
+          erms.innerHTML = s;
+        }
+      }
+
+      showtask();
+    });
+    showtask();
+
+    function showtask() {
+      var input_value = input_data.value;
+      let webtask = localStorage.getItem("localtask");
+      if (webtask == null) {
+        taskobj = [];
+      } else {
+        taskobj = JSON.parse(webtask);
+      }
+      let html = "";
+      let tasklist = document.querySelector(".todo");
+      taskobj.forEach((item, index) => {
+        html += `<div class="data_box">
+            <div class="stk">
+              <h3>${index + 1}</h3>
+              <div class="stkbtn">
+                <i
+                  class="fa-solid fa-pen-to-square"
+                  id="edit"
+                  onclick="edit(${index})"
+                ></i>
+                <i class="fa-solid fa-trash-can" onclick="del(${index})"></i>
+              </div>
+            </div>
+            <div class="msg">
+              ${item}
+            </div>
+          </div>`;
+      });
+      tasklist.innerHTML = html;
+      clear();
+    }
+    //---------------------edit task
+    const edit_btn = document.getElementById("edit");
+    function edit(index) {
+      const save_index = document.getElementById("hidden_input");
+      const add = document.getElementById("add");
+      const save = document.getElementById("save");
+      save_index.value = index;
+      let webtask = localStorage.getItem("localtask");
+      let taskobj = JSON.parse(webtask);
+      input_data.value = taskobj[index];
+      add.style.display = "none";
+      save.style.display = "block";
+    }
+    //------------------------clear data---------------//
+    function clear() {
+      input_data.value = "";
+    }
+    //--------------------save data//////////////
+    const save = document.getElementById("save");
+    save.addEventListener("click", () => {
+      let webtask = localStorage.getItem("localtask");
+      const add = document.getElementById("add");
+      let taskobj = JSON.parse(webtask);
+      const save_index = document.getElementById("hidden_input").value;
+      taskobj[save_index] = input_data.value;
+      save.style.display = "none";
+      add.style.display = "block";
+
+      localStorage.setItem("localtask", JSON.stringify(taskobj));
+      showtask();
+      clear();
+    });
+    //------------------------------delete data----------//
+    function del(index) {
+      let webtask = localStorage.getItem("localtask");
+      let taskobj = JSON.parse(webtask);
+      taskobj.splice(index, 1);
+      localStorage.setItem("localtask", JSON.stringify(taskobj));
+      if (index == 0) {
+        window.location.reload(true);
+      }
+      //
+      showtask();
+      clear();
+    }
+    //----------------clear btn
+    const clear_btn = document.querySelector(".btn2");
+    clear_btn.addEventListener("click", clear);
+    //---------------
+    erm();
+    function erm() {
+      let webtask = localStorage.getItem("localtask");
+      let a = JSON.parse(webtask);
+      const erms = document.querySelector(".delall").children[0];
+      let s = "";
+      if (a.length == "0") {
+        s += `<p>list is empty</p>`;
+        erms.innerHTML = s;
+      } else {
+        erms.style.display = "none";
+      }
+    }
+    //-------------------delete all--------------------//
+    const delbtn = document.querySelector(".delallbtn");
+    delbtn.addEventListener("click", () => {
+      let webtask = localStorage.getItem("localtask");
+      let taskobj = JSON.parse(webtask);
+      if (webtask == null) {
+        taskobj = [];
+      } else {
+        taskobj = JSON.parse(webtask);
+        taskobj = [];
+      }
+      localStorage.setItem("localtask", JSON.stringify(taskobj));
+      showtask();
+      clear();
+      window.location.reload(true);
+    });
+    //-----------
+    /*const todo = document.getElementById("t");
+    let webtask = localStorage.getItem("localtask");
+    let a = JSON.parse(webtask);
+    let k = 0;
+    if (a.length > 4) {
+      todo.style.overflowY = "scroll";
+    }*/
+  </script>
+</html>
