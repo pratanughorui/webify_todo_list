@@ -439,7 +439,15 @@
       const add = document.getElementById("add");
       let taskobj = JSON.parse(webtask);
       const save_index = document.getElementById("hidden_input").value;
-      taskobj[save_index] = input_data.value;
+       if (input_data.value.trim() != 0) {
+        taskobj[save_index] = input_data.value;
+      } else {
+        const erms = document.querySelector(".delall").children[0];
+        erms.style.display = "block";
+        let s = `<p>You have to write something</p>`;
+
+        erms.innerHTML = s;
+      }
       save.style.display = "none";
       add.style.display = "block";
 
